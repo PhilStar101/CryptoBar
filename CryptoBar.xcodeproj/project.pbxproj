@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03466B5127C187AC004B699E /* CryptoBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03466B5027C187AC004B699E /* CryptoBarApp.swift */; };
+		03466B5527C187AD004B699E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03466B5427C187AD004B699E /* Assets.xcassets */; };
+		03466B5827C187AD004B699E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03466B5727C187AD004B699E /* Preview Assets.xcassets */; };
+		03466B6327C187AD004B699E /* CryptoBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03466B6227C187AD004B699E /* CryptoBarTests.swift */; };
+		03466B6D27C187AD004B699E /* CryptoBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03466B6C27C187AD004B699E /* CryptoBarUITests.swift */; };
+		03466B6F27C187AD004B699E /* CryptoBarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03466B6E27C187AD004B699E /* CryptoBarUITestsLaunchTests.swift */; };
+		03466B7D27C18A08004B699E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03466B7C27C18A08004B699E /* AppDelegate.swift */; };
+		03466B7F27C190C7004B699E /* MenuBarCoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03466B7E27C190C7004B699E /* MenuBarCoinView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03466B5F27C187AD004B699E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03466B4527C187AC004B699E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03466B4C27C187AC004B699E;
+			remoteInfo = CryptoBar;
+		};
+		03466B6927C187AD004B699E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03466B4527C187AC004B699E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03466B4C27C187AC004B699E;
+			remoteInfo = CryptoBar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03466B4D27C187AC004B699E /* CryptoBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03466B5027C187AC004B699E /* CryptoBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoBarApp.swift; sourceTree = "<group>"; };
+		03466B5427C187AD004B699E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		03466B5727C187AD004B699E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		03466B5927C187AD004B699E /* CryptoBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryptoBar.entitlements; sourceTree = "<group>"; };
+		03466B5E27C187AD004B699E /* CryptoBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03466B6227C187AD004B699E /* CryptoBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoBarTests.swift; sourceTree = "<group>"; };
+		03466B6827C187AD004B699E /* CryptoBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03466B6C27C187AD004B699E /* CryptoBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoBarUITests.swift; sourceTree = "<group>"; };
+		03466B6E27C187AD004B699E /* CryptoBarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoBarUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		03466B7B27C188E3004B699E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		03466B7C27C18A08004B699E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		03466B7E27C190C7004B699E /* MenuBarCoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCoinView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03466B4A27C187AC004B699E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03466B5B27C187AD004B699E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03466B6527C187AD004B699E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03466B4427C187AC004B699E = {
+			isa = PBXGroup;
+			children = (
+				03466B4F27C187AC004B699E /* CryptoBar */,
+				03466B6127C187AD004B699E /* CryptoBarTests */,
+				03466B6B27C187AD004B699E /* CryptoBarUITests */,
+				03466B4E27C187AC004B699E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		03466B4E27C187AC004B699E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03466B4D27C187AC004B699E /* CryptoBar.app */,
+				03466B5E27C187AD004B699E /* CryptoBarTests.xctest */,
+				03466B6827C187AD004B699E /* CryptoBarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03466B4F27C187AC004B699E /* CryptoBar */ = {
+			isa = PBXGroup;
+			children = (
+				03466B7B27C188E3004B699E /* Info.plist */,
+				03466B5027C187AC004B699E /* CryptoBarApp.swift */,
+				03466B7C27C18A08004B699E /* AppDelegate.swift */,
+				03466B7E27C190C7004B699E /* MenuBarCoinView.swift */,
+				03466B5427C187AD004B699E /* Assets.xcassets */,
+				03466B5927C187AD004B699E /* CryptoBar.entitlements */,
+				03466B5627C187AD004B699E /* Preview Content */,
+			);
+			path = CryptoBar;
+			sourceTree = "<group>";
+		};
+		03466B5627C187AD004B699E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				03466B5727C187AD004B699E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		03466B6127C187AD004B699E /* CryptoBarTests */ = {
+			isa = PBXGroup;
+			children = (
+				03466B6227C187AD004B699E /* CryptoBarTests.swift */,
+			);
+			path = CryptoBarTests;
+			sourceTree = "<group>";
+		};
+		03466B6B27C187AD004B699E /* CryptoBarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				03466B6C27C187AD004B699E /* CryptoBarUITests.swift */,
+				03466B6E27C187AD004B699E /* CryptoBarUITestsLaunchTests.swift */,
+			);
+			path = CryptoBarUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		03466B4C27C187AC004B699E /* CryptoBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03466B7227C187AD004B699E /* Build configuration list for PBXNativeTarget "CryptoBar" */;
+			buildPhases = (
+				03466B4927C187AC004B699E /* Sources */,
+				03466B4A27C187AC004B699E /* Frameworks */,
+				03466B4B27C187AC004B699E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CryptoBar;
+			productName = CryptoBar;
+			productReference = 03466B4D27C187AC004B699E /* CryptoBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		03466B5D27C187AD004B699E /* CryptoBarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03466B7527C187AD004B699E /* Build configuration list for PBXNativeTarget "CryptoBarTests" */;
+			buildPhases = (
+				03466B5A27C187AD004B699E /* Sources */,
+				03466B5B27C187AD004B699E /* Frameworks */,
+				03466B5C27C187AD004B699E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03466B6027C187AD004B699E /* PBXTargetDependency */,
+			);
+			name = CryptoBarTests;
+			productName = CryptoBarTests;
+			productReference = 03466B5E27C187AD004B699E /* CryptoBarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		03466B6727C187AD004B699E /* CryptoBarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03466B7827C187AD004B699E /* Build configuration list for PBXNativeTarget "CryptoBarUITests" */;
+			buildPhases = (
+				03466B6427C187AD004B699E /* Sources */,
+				03466B6527C187AD004B699E /* Frameworks */,
+				03466B6627C187AD004B699E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03466B6A27C187AD004B699E /* PBXTargetDependency */,
+			);
+			name = CryptoBarUITests;
+			productName = CryptoBarUITests;
+			productReference = 03466B6827C187AD004B699E /* CryptoBarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03466B4527C187AC004B699E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					03466B4C27C187AC004B699E = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					03466B5D27C187AD004B699E = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 03466B4C27C187AC004B699E;
+					};
+					03466B6727C187AD004B699E = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 03466B4C27C187AC004B699E;
+					};
+				};
+			};
+			buildConfigurationList = 03466B4827C187AC004B699E /* Build configuration list for PBXProject "CryptoBar" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 03466B4427C187AC004B699E;
+			productRefGroup = 03466B4E27C187AC004B699E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				03466B4C27C187AC004B699E /* CryptoBar */,
+				03466B5D27C187AD004B699E /* CryptoBarTests */,
+				03466B6727C187AD004B699E /* CryptoBarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03466B4B27C187AC004B699E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03466B5827C187AD004B699E /* Preview Assets.xcassets in Resources */,
+				03466B5527C187AD004B699E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03466B5C27C187AD004B699E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03466B6627C187AD004B699E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03466B4927C187AC004B699E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03466B7F27C190C7004B699E /* MenuBarCoinView.swift in Sources */,
+				03466B7D27C18A08004B699E /* AppDelegate.swift in Sources */,
+				03466B5127C187AC004B699E /* CryptoBarApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03466B5A27C187AD004B699E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03466B6327C187AD004B699E /* CryptoBarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03466B6427C187AD004B699E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03466B6D27C187AD004B699E /* CryptoBarUITests.swift in Sources */,
+				03466B6F27C187AD004B699E /* CryptoBarUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03466B6027C187AD004B699E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03466B4C27C187AC004B699E /* CryptoBar */;
+			targetProxy = 03466B5F27C187AD004B699E /* PBXContainerItemProxy */;
+		};
+		03466B6A27C187AD004B699E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03466B4C27C187AC004B699E /* CryptoBar */;
+			targetProxy = 03466B6927C187AD004B699E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		03466B7027C187AD004B699E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		03466B7127C187AD004B699E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		03466B7327C187AD004B699E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CryptoBar/CryptoBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CryptoBar/Preview Content\"";
+				DEVELOPMENT_TEAM = 8S99WF8ZDF;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoBar/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philstar.CryptoBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		03466B7427C187AD004B699E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CryptoBar/CryptoBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CryptoBar/Preview Content\"";
+				DEVELOPMENT_TEAM = 8S99WF8ZDF;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoBar/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philstar.CryptoBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		03466B7627C187AD004B699E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8S99WF8ZDF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philstar.CryptoBarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CryptoBar.app/Contents/MacOS/CryptoBar";
+			};
+			name = Debug;
+		};
+		03466B7727C187AD004B699E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8S99WF8ZDF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philstar.CryptoBarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CryptoBar.app/Contents/MacOS/CryptoBar";
+			};
+			name = Release;
+		};
+		03466B7927C187AD004B699E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8S99WF8ZDF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philstar.CryptoBarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = CryptoBar;
+			};
+			name = Debug;
+		};
+		03466B7A27C187AD004B699E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8S99WF8ZDF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philstar.CryptoBarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = CryptoBar;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03466B4827C187AC004B699E /* Build configuration list for PBXProject "CryptoBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03466B7027C187AD004B699E /* Debug */,
+				03466B7127C187AD004B699E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03466B7227C187AD004B699E /* Build configuration list for PBXNativeTarget "CryptoBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03466B7327C187AD004B699E /* Debug */,
+				03466B7427C187AD004B699E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03466B7527C187AD004B699E /* Build configuration list for PBXNativeTarget "CryptoBarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03466B7627C187AD004B699E /* Debug */,
+				03466B7727C187AD004B699E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03466B7827C187AD004B699E /* Build configuration list for PBXNativeTarget "CryptoBarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03466B7927C187AD004B699E /* Debug */,
+				03466B7A27C187AD004B699E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 03466B4527C187AC004B699E /* Project object */;
+}
