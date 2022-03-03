@@ -15,6 +15,7 @@
 		03466B6F27C187AD004B699E /* CryptoBarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03466B6E27C187AD004B699E /* CryptoBarUITestsLaunchTests.swift */; };
 		03466B7D27C18A08004B699E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03466B7C27C18A08004B699E /* AppDelegate.swift */; };
 		03466B7F27C190C7004B699E /* MenuBarCoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03466B7E27C190C7004B699E /* MenuBarCoinView.swift */; };
+		035D8AA127D0B8BC00CF255C /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035D8AA027D0B8BC00CF255C /* PopoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		03466B7B27C188E3004B699E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		03466B7C27C18A08004B699E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03466B7E27C190C7004B699E /* MenuBarCoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCoinView.swift; sourceTree = "<group>"; };
+		035D8AA027D0B8BC00CF255C /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,10 +100,10 @@
 		03466B4F27C187AC004B699E /* CryptoBar */ = {
 			isa = PBXGroup;
 			children = (
+				03F5FD8E27D0B2E80059A1DE /* Views */,
 				03466B7B27C188E3004B699E /* Info.plist */,
 				03466B5027C187AC004B699E /* CryptoBarApp.swift */,
 				03466B7C27C18A08004B699E /* AppDelegate.swift */,
-				03466B7E27C190C7004B699E /* MenuBarCoinView.swift */,
 				03466B5427C187AD004B699E /* Assets.xcassets */,
 				03466B5927C187AD004B699E /* CryptoBar.entitlements */,
 				03466B5627C187AD004B699E /* Preview Content */,
@@ -132,6 +134,15 @@
 				03466B6E27C187AD004B699E /* CryptoBarUITestsLaunchTests.swift */,
 			);
 			path = CryptoBarUITests;
+			sourceTree = "<group>";
+		};
+		03F5FD8E27D0B2E80059A1DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				03466B7E27C190C7004B699E /* MenuBarCoinView.swift */,
+				035D8AA027D0B8BC00CF255C /* PopoverView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,7 @@
 			files = (
 				03466B7F27C190C7004B699E /* MenuBarCoinView.swift in Sources */,
 				03466B7D27C18A08004B699E /* AppDelegate.swift in Sources */,
+				035D8AA127D0B8BC00CF255C /* PopoverView.swift in Sources */,
 				03466B5127C187AC004B699E /* CryptoBarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

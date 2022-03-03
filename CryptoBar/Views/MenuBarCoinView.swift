@@ -23,7 +23,7 @@ struct MenuBarCoinView: View {
                         .font(.system(size: 12, design: .monospaced))
                         .fontWeight(.black)
                         .frame(height: 10)
-                        .foregroundColor(Color(hue: 0.107, saturation: 0.679, brightness: 0.964))
+                        .foregroundColor(.orange)
                 }
                 Text("100000,03")
                     .font(.system(size: 10, design: .monospaced))
@@ -33,7 +33,6 @@ struct MenuBarCoinView: View {
             .frame(height: 20)
             .clipped()
         }
-//        .padding(.horizontal, 4)
     }
 }
 
