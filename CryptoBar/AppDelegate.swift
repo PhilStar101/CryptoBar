@@ -51,13 +51,16 @@ extension AppDelegate {
 
         popover.show(relativeTo: positioningView.bounds, of: positioningView, preferredEdge: .maxY)
         positioningView.bounds = positioningView.bounds.offsetBy(dx: 0, dy: positioningView.bounds.height)
+        if let popoverWindow = popover.contentViewController?.view.window {
+            popoverWindow.setFrame(popoverWindow.frame.offsetBy(dx: 0, dy: 8), display: false)
+        }
         popover.contentViewController?.view.window?.makeKey()
     }
 }
 
 // MARK: - POPOVER
 
-extension AppDelegate {
+extension AppDelegate: NSPopoverDelegate {
     func setupPopover() {
         let hostingView = NSHostingView(rootView: PopoverView().frame(maxWidth: .infinity, maxHeight: .infinity))
         popover.behavior = .transient
@@ -66,4 +69,12 @@ extension AppDelegate {
         popover.contentViewController = NSViewController()
         popover.contentViewController?.view = hostingView
     }
+    
+    func popoverDidClose(_ notification: Notification) {
+        let positioningView = statusItem?.button?.subviews.first {
+            $0.identifier == NSUserInterfaceItemIdentifier(rawValue: "positioningView")
+        }
+        positioningView?.removeFromSuperview()
+    }
+    
 }
