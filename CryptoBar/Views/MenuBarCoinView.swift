@@ -33,7 +33,6 @@ struct MenuBarCoinView: View {
             .frame(height: 20)
             .clipped()
         }
-//        .padding(.horizontal, 4)
     }
 }
 

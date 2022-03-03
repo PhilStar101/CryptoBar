@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct PopoverView: View {
+    @State var show = false
+
     var body: some View {
         VStack(spacing: 8) {
             HStack(alignment: .firstTextBaseline) {
                 Text("BTC")
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .fontWeight(.black)
                     .foregroundColor(.orange)
                 Text("Bitcoin")
                     .font(.caption)
@@ -27,7 +29,7 @@ struct PopoverView: View {
             HStack(alignment: .firstTextBaseline) {
                 Text("ETH")
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .fontWeight(.black)
                     .foregroundColor(.purple)
                 Text("Ethereum")
                     .font(.caption)
@@ -37,7 +39,6 @@ struct PopoverView: View {
                     .font(.system(.title3, design: .monospaced))
                     .fontWeight(.bold)
             }
-            Spacer(minLength: 0)
         }
         .padding(.horizontal, 16)
         .padding(.vertical)
@@ -46,6 +47,7 @@ struct PopoverView: View {
 
 struct PopoverView_Previews: PreviewProvider {
     static var previews: some View {
-        PopoverView().frame(width: 248, height: 264)
+        PopoverView()
+            .frame(width: 248, height: 98)
     }
 }
