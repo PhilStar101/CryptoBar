@@ -84,7 +84,6 @@
 		03466B4427C187AC004B699E = {
 			isa = PBXGroup;
 			children = (
-				035D8AAE27D0E34300CF255C /* Models */,
 				03466B4F27C187AC004B699E /* CryptoBar */,
 				03466B6127C187AD004B699E /* CryptoBarTests */,
 				03466B6B27C187AD004B699E /* CryptoBarUITests */,
@@ -105,6 +104,7 @@
 		03466B4F27C187AC004B699E /* CryptoBar */ = {
 			isa = PBXGroup;
 			children = (
+				035D8AAE27D0E34300CF255C /* Models */,
 				03F5FD8E27D0B2E80059A1DE /* Views */,
 				03466B7B27C188E3004B699E /* Info.plist */,
 				03466B5027C187AC004B699E /* CryptoBarApp.swift */,
@@ -147,8 +147,7 @@
 				035D8AAF27D0E34300CF255C /* Coin.swift */,
 				035D8AB027D0E34300CF255C /* CoinType.swift */,
 			);
-			name = Models;
-			path = CryptoBar/Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		03F5FD8E27D0B2E80059A1DE /* Views */ = {
