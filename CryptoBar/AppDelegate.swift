@@ -11,10 +11,14 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem?
     let popover = NSPopover()
+    let priceService = PriceService()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         setupMenuBar()
         setupPopover()
+        priceService
+            .connect()
+            .setupMonitorNetworkConnectivity()
     }
 }
 

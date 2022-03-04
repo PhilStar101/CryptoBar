@@ -16,6 +16,9 @@
 		03466B7D27C18A08004B699E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03466B7C27C18A08004B699E /* AppDelegate.swift */; };
 		03466B7F27C190C7004B699E /* MenuBarCoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03466B7E27C190C7004B699E /* MenuBarCoinView.swift */; };
 		035D8AA127D0B8BC00CF255C /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035D8AA027D0B8BC00CF255C /* PopoverView.swift */; };
+		035D8AB127D0E34300CF255C /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035D8AAF27D0E34300CF255C /* CoinModel.swift */; };
+		035D8AB227D0E34300CF255C /* CoinTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035D8AB027D0E34300CF255C /* CoinTypeModel.swift */; };
+		035D8AB527D0E45A00CF255C /* PriceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035D8AB427D0E45A00CF255C /* PriceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		03466B7C27C18A08004B699E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03466B7E27C190C7004B699E /* MenuBarCoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCoinView.swift; sourceTree = "<group>"; };
 		035D8AA027D0B8BC00CF255C /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
+		035D8AAF27D0E34300CF255C /* CoinModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
+		035D8AB027D0E34300CF255C /* CoinTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinTypeModel.swift; sourceTree = "<group>"; };
+		035D8AB427D0E45A00CF255C /* PriceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,8 @@
 		03466B4F27C187AC004B699E /* CryptoBar */ = {
 			isa = PBXGroup;
 			children = (
+				035D8AB327D0E43800CF255C /* Services */,
+				035D8AAE27D0E34300CF255C /* Models */,
 				03F5FD8E27D0B2E80059A1DE /* Views */,
 				03466B7B27C188E3004B699E /* Info.plist */,
 				03466B5027C187AC004B699E /* CryptoBarApp.swift */,
@@ -134,6 +142,23 @@
 				03466B6E27C187AD004B699E /* CryptoBarUITestsLaunchTests.swift */,
 			);
 			path = CryptoBarUITests;
+			sourceTree = "<group>";
+		};
+		035D8AAE27D0E34300CF255C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				035D8AAF27D0E34300CF255C /* CoinModel.swift */,
+				035D8AB027D0E34300CF255C /* CoinTypeModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		035D8AB327D0E43800CF255C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				035D8AB427D0E45A00CF255C /* PriceService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		03F5FD8E27D0B2E80059A1DE /* Views */ = {
@@ -276,8 +301,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				03466B7F27C190C7004B699E /* MenuBarCoinView.swift in Sources */,
+				035D8AB527D0E45A00CF255C /* PriceService.swift in Sources */,
 				03466B7D27C18A08004B699E /* AppDelegate.swift in Sources */,
+				035D8AB227D0E34300CF255C /* CoinTypeModel.swift in Sources */,
 				035D8AA127D0B8BC00CF255C /* PopoverView.swift in Sources */,
+				035D8AB127D0E34300CF255C /* CoinModel.swift in Sources */,
 				03466B5127C187AC004B699E /* CryptoBarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

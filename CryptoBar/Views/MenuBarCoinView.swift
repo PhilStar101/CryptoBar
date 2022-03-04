@@ -17,7 +17,7 @@ struct MenuBarCoinView: View {
                         .foregroundColor(.green)
                         .font(.system(size: 6))
                         .frame(width: 8, height: 8)
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.blue)
                     Spacer()
                     Text("btc".uppercased())
                         .font(.system(size: 12, design: .monospaced))
