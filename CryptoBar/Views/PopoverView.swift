@@ -12,32 +12,42 @@ struct PopoverView: View {
 
     var body: some View {
         VStack(spacing: 8) {
-            HStack(alignment: .firstTextBaseline) {
+            HStack(alignment: .center, spacing: 4) {
                 Text("BTC")
-                    .font(.title2)
+                    .font(.system(.title2, design: .monospaced))
                     .fontWeight(.black)
                     .foregroundColor(.orange)
                 Text("Bitcoin")
                     .font(.caption)
                     .fontWeight(.bold)
                 Spacer()
-                Text("100000,03")
-                    .font(.system(.title3, design: .monospaced))
-                    .fontWeight(.bold)
+                Link(destination: URL(string: "https://google.com")!) {
+                    Text("100000,03")
+                        .font(.system(.title3, design: .monospaced))
+                        .fontWeight(.bold)
+                    Image(systemName: "arrow.up.right.circle")
+                        .font(.title2)
+                }
+                .foregroundColor(.white)
             }
             Divider()
-            HStack(alignment: .firstTextBaseline) {
+            HStack(alignment: .center, spacing: 4) {
                 Text("ETH")
-                    .font(.title2)
+                    .font(.system(.title2, design: .monospaced))
                     .fontWeight(.black)
                     .foregroundColor(.purple)
                 Text("Ethereum")
                     .font(.caption)
                     .fontWeight(.bold)
                 Spacer()
-                Text("100000,03")
-                    .font(.system(.title3, design: .monospaced))
-                    .fontWeight(.bold)
+                Link(destination: URL(string: "https://google.com")!) {
+                    Text("100000,03")
+                        .font(.system(.title3, design: .monospaced))
+                        .fontWeight(.bold)
+                    Image(systemName: "arrow.up.right.circle")
+                        .font(.title3)
+                }
+                .foregroundColor(.white)
             }
         }
         .padding(.horizontal, 16)
