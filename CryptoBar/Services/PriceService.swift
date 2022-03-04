@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import Network
 
 class PriceService: NSObject {
     private let session = URLSession(configuration: .default)
@@ -18,18 +19,12 @@ class PriceService: NSObject {
     private let connectionSubject = CurrentValueSubject<Bool, Never>(false)
     private var isConnected: Bool { connectionSubject.value }
 
-    func connect() {
-        let coins = CoinType
-            .allCases
-            .map { $0.rawValue }
-            .joined(separator: ",")
-
-        guard let url = URL(string: "wss://ws.coincap.io/prices?assets=\(coins)") else { return }
-        wsTask = session.webSocketTask(with: url)
-        wsTask?.delegate = self
-        wsTask?.resume()
-        recieveMessage()
+    private var continuePing = true
+    private var reconnectionDelay: Double {
+        return continuePing ? 5 : 15
     }
+
+    private let monitor = NWPathMonitor()
 
     func recieveMessage() {
         wsTask?.receive { [weak self] result in
@@ -66,14 +61,106 @@ class PriceService: NSObject {
         return []
     }
 
+    func schedulePing() {
+        // TODO: replace with error
+        guard let wsTask = wsTask,
+              continuePing
+        else { return }
+
+        let identifier = wsTask.taskIdentifier
+        DispatchQueue.main.asyncAfter(deadline: .now() + reconnectionDelay) { [weak self] in
+            // TODO: replace with error
+            guard let self = self,
+                  let wsTask = self.wsTask,
+                  wsTask.taskIdentifier == identifier
+            else { return }
+
+            if wsTask.state == .running,
+               self.continuePing
+            {
+                wsTask.sendPing { [weak self] error in
+                    if error != nil {
+                        print("Ping failed")
+                        self?.continuePing = false
+                    } else if self?.wsTask?.taskIdentifier == identifier {
+                        print("Ping worked")
+                        self?.continuePing = true
+                    }
+                }
+                self.schedulePing()
+            } else {
+                self.reconnect()
+            }
+        }
+    }
+
+    func setupMonitorNetworkConnectivity() {
+        monitor.pathUpdateHandler = { [weak self] path in
+            // TODO: replace with error
+            guard let self = self else { return }
+            print("Called pathUpdateHandler \(path)")
+
+            if path.status == .satisfied, self.wsTask == nil {
+                self._connect()
+            }
+
+            if path.status == .unsatisfied {
+                self.clearConnection()
+            }
+        }
+        monitor.start(queue: .main)
+    }
+
+    func reconnect() {
+        clearConnection()
+        _connect()
+    }
+
+    func clearConnection() {
+        wsTask?.cancel(with: .goingAway, reason: .none)
+        wsTask = nil
+        continuePing = false
+        connectionSubject.send(false)
+    }
+
     deinit {
         coinDictionarySubject.send(completion: .finished)
         connectionSubject.send(completion: .finished)
     }
 }
 
-extension PriceService: URLSessionWebSocketDelegate {
-    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {}
+// MARK: - CONNECTION
 
-    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {}
+extension PriceService: URLSessionWebSocketDelegate {
+    private func _connect() {
+        // TODO: replace with error
+        guard monitor.currentPath.status == .satisfied else { return }
+        let coins = CoinType
+            .allCases
+            .map { $0.rawValue }
+            .joined(separator: ",")
+
+        guard let url = URL(string: "wss://ws.coincap.io/prices?assets=\(coins)") else { return }
+//        guard let url = URL(string: "ws://localhost:8080") else { return }
+        wsTask = session.webSocketTask(with: url)
+        wsTask?.delegate = self
+        wsTask?.resume()
+        recieveMessage()
+    }
+
+    func connect() -> Self {
+        _connect()
+        return self
+    }
+
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
+        continuePing = monitor.currentPath.status == .satisfied
+        schedulePing()
+        connectionSubject.send(true)
+    }
+
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
+        continuePing = false
+        connectionSubject.send(false)
+    }
 }

@@ -16,7 +16,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         setupMenuBar()
         setupPopover()
-        priceService.connect()
+        priceService
+            .connect()
+            .setupMonitorNetworkConnectivity()
     }
 }
 
