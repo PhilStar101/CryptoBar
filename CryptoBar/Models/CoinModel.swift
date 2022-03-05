@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Coin {
+struct Coin: Hashable {
     let type: CoinType
     let value: Double
 }
@@ -30,5 +30,5 @@ extension Coin {
 }
 
 extension Coin: CustomStringConvertible {
-    var description: String { "\(type.rawValue) (\(value))" }
+    var description: String { "\(type.ticker) (\(value))" }
 }
