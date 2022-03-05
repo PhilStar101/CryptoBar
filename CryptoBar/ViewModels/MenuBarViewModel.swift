@@ -10,11 +10,12 @@ import Foundation
 import SwiftUI
 
 class MenuBarViewModel: ObservableObject {
+    @Published var coins: [Coin] = []
+    @Published var value: String = "..."
     @Published var type: CoinType = .ethereum
 //    @Published var value: String = "…"
-    @Published var value: String = "..."
     @Published var isError: Bool = false
-    
+
     @AppStorage("SelectedCoinType") var selectedCoinType: CoinType = .ethereum
 
     let service: PriceService
@@ -25,7 +26,7 @@ class MenuBarViewModel: ObservableObject {
     }
 
     func subscribeToService() {
-        service.coinSubject
+        service.coinsSubject
             .combineLatest(service.connectionSubject)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in self?.updateView() }
@@ -33,10 +34,10 @@ class MenuBarViewModel: ObservableObject {
     }
 
     func updateView() {
-        let coin = service.coin.first { $0.type == selectedCoinType }
-
         if service.isConnected {
             isError = false
+            coins = service.coins
+            let coin = service.coins.first { $0.type == selectedCoinType }
             guard let coin = coin else {
                 value = "..."
                 return

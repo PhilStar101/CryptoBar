@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum CoinType: String, Identifiable, CaseIterable {
+enum CoinType: String, Identifiable, Hashable, CaseIterable {
     case bitcoin
     case ethereum
     case monero

@@ -7,9 +7,18 @@
 
 import Foundation
 
-struct Coin: Hashable {
+struct Coin: Identifiable, Hashable {
     let type: CoinType
     let value: Double
+    let id = UUID()
+
+    static func == (lhs: Coin, rhs: Coin) -> Bool {
+        return lhs.type == rhs.type
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(type)
+    }
 }
 
 extension Coin {

@@ -13,11 +13,11 @@ class PriceService: NSObject {
     private let session = URLSession(configuration: .default)
     private var wsTask: URLSessionWebSocketTask?
 
-    private let coinDictionarySubject = CurrentValueSubject<[String: Coin], Never>([:])
-    private var coinDictionary: [String: Coin] { coinDictionarySubject.value }
+    let coinsSubject = CurrentValueSubject<[Coin], Never>([])
+    var coins: [Coin] { coinsSubject.value }
 
-    private let connectionSubject = CurrentValueSubject<Bool, Never>(false)
-    private var isConnected: Bool { connectionSubject.value }
+    let connectionSubject = CurrentValueSubject<Bool, Never>(true)
+    var isConnected: Bool { connectionSubject.value }
 
     private var continuePing = true
     private var reconnectionDelay: Double {
@@ -37,9 +37,9 @@ class PriceService: NSObject {
                 case .string(let string):
                     // TODO: replace with error
                     guard let jsonData = string.data(using: .utf8) else { return }
-                    print(self.decodeData(for: jsonData))
+                    self.decodeData(for: jsonData)
                 case .data(let jsonData):
-                    print(self.decodeData(for: jsonData))
+                    self.decodeData(for: jsonData)
                 @unknown default:
                     // TODO: replace with error
                     print("Failure in message switch")
@@ -52,13 +52,12 @@ class PriceService: NSObject {
         }
     }
 
-    func decodeData(for jsonData: Data) -> [Coin] {
+    func decodeData(for jsonData: Data) {
         if let dictionary = try? JSONSerialization.jsonObject(with: jsonData,
                                                               options: .fragmentsAllowed) as? [String: Any]
         {
-            return Coin.makeArray(from: dictionary)
+            coinsSubject.send(Array(Set(Coin.makeArray(from: dictionary) + coins)))
         }
-        return []
     }
 
     func schedulePing() {
@@ -124,7 +123,7 @@ class PriceService: NSObject {
     }
 
     deinit {
-        coinDictionarySubject.send(completion: .finished)
+        coinsSubject.send(completion: .finished)
         connectionSubject.send(completion: .finished)
     }
 }
