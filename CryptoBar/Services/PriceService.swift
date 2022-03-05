@@ -98,7 +98,6 @@ class PriceService: NSObject {
                         print("Ping failed")
                         self?.continuePing = false
                     } else if self?.wsTask?.taskIdentifier == identifier {
-                        print("Ping worked")
                         self?.continuePing = true
                     }
                 }

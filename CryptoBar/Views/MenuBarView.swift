@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MenuBarView: View {
-    @ObservedObject var vm: MenuBarViewModel
+    @ObservedObject var vm: CoinsViewModel
 
     var body: some View {
         HStack(alignment: .center, spacing: 8) {

@@ -12,13 +12,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem?
     let popover = NSPopover()
     let priceService = PriceService()
-    var menubarViewModel: MenuBarViewModel?
+    var coinsViewModel: CoinsViewModel?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         priceService
             .connect()
             .setupMonitorNetworkConnectivity()
-        menubarViewModel = MenuBarViewModel(service: priceService)
+        coinsViewModel = CoinsViewModel(service: priceService)
         setupMenuBar()
         setupPopover()
     }
@@ -30,7 +30,7 @@ extension AppDelegate {
     func setupMenuBar() {
         statusItem = NSStatusBar.system.statusItem(withLength: 62)
         guard let menuButton = statusItem?.button,
-              let menubarViewModel = menubarViewModel
+              let menubarViewModel = coinsViewModel
         else { return }
 
         // TODO: remove vm parameter
@@ -71,7 +71,7 @@ extension AppDelegate {
 
 extension AppDelegate: NSPopoverDelegate {
     func setupPopover() {
-        guard let menubarViewModel = menubarViewModel else { return }
+        guard let menubarViewModel = coinsViewModel else { return }
         
         let hostingView = NSHostingView(rootView: PopoverView(vm: menubarViewModel).frame(maxWidth: .infinity, maxHeight: .infinity))
         popover.behavior = .transient

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PopoverView: View {
     @State var show = false
-    @ObservedObject var vm: MenuBarViewModel
+    @ObservedObject var vm: CoinsViewModel
 
     var body: some View {
         VStack(spacing: 8) {

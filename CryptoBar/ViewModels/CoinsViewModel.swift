@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import SwiftUI
 
-class MenuBarViewModel: ObservableObject {
+class CoinsViewModel: ObservableObject {
     var coinTypes: [CoinType] {
         CoinType.allCases.filter { coins[$0] != nil }
     }
