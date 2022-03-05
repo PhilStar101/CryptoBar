@@ -13,8 +13,15 @@ class PriceService: NSObject {
     private let session = URLSession(configuration: .default)
     private var wsTask: URLSessionWebSocketTask?
 
-    let coinsSubject = CurrentValueSubject<[Coin], Never>([])
-    var coins: [Coin] { coinsSubject.value }
+    let coinsSubject = CurrentValueSubject<[CoinType: Coin], Never>([:])
+    var coins: [CoinType: Coin] {
+        get {
+            coinsSubject.value
+        }
+        set {
+            coinsSubject.value = newValue
+        }
+    }
 
     let connectionSubject = CurrentValueSubject<Bool, Never>(true)
     var isConnected: Bool { connectionSubject.value }
@@ -53,11 +60,20 @@ class PriceService: NSObject {
     }
 
     func decodeData(for jsonData: Data) {
-        if let dictionary = try? JSONSerialization.jsonObject(with: jsonData,
-                                                              options: .fragmentsAllowed) as? [String: Any]
-        {
-            coinsSubject.send(Array(Set(Coin.makeArray(from: dictionary) + coins)))
+        guard let parsedDictionary = try? JSONSerialization.jsonObject(with: jsonData,
+                                                                       options: .fragmentsAllowed) as? [String: Any]
+        else { return }
+
+        var newCoins = [CoinType: Coin]()
+        let parsedCoins = Coin.makeDictionary(from: parsedDictionary)
+
+        parsedCoins.forEach { coinType, coin in
+            newCoins[coinType] = coin
         }
+        let mergedDictionary = coins.merging(newCoins) { $1 }
+        coins = mergedDictionary
+
+//        coins = (Array(Set(Coin.makeArray(from: dictionary) + coins)))
     }
 
     func schedulePing() {

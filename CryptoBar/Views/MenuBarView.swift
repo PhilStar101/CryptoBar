@@ -20,7 +20,7 @@ struct MenuBarView: View {
                     .font(.system(size: 12, design: .monospaced))
                     .fontWeight(.black)
                     .frame(height: 8)
-                    .foregroundColor(.orange)
+                    .foregroundColor(vm.color)
                 Text(vm.value)
                     .font(.system(size: 10, design: .monospaced))
                     .fontWeight(.bold)

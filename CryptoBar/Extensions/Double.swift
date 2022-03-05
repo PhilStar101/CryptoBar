@@ -12,6 +12,7 @@ extension Double {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 2
         formatter.maximumFractionDigits = 2
+        formatter.decimalSeparator = "."
         return formatter
     }()
 

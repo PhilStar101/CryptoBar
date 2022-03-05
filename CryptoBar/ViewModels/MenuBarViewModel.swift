@@ -10,13 +10,17 @@ import Foundation
 import SwiftUI
 
 class MenuBarViewModel: ObservableObject {
-    @Published var coins: [Coin] = []
+    var coinTypes: [CoinType] {
+        CoinType.allCases.filter { coins[$0] != nil }
+    }
+
+    @Published var coins: [CoinType: Coin] = [:]
     @Published var value: String = "..."
-    @Published var type: CoinType = .ethereum
-//    @Published var value: String = "…"
+    @Published var type: CoinType = .bnb
+    @Published var color: Color = .orange
     @Published var isError: Bool = false
 
-    @AppStorage("SelectedCoinType") var selectedCoinType: CoinType = .ethereum
+    @AppStorage("SelectedCoinType") var selectedCoinType: CoinType = .bnb
 
     let service: PriceService
     private var subscriptions = Set<AnyCancellable>()
@@ -37,13 +41,16 @@ class MenuBarViewModel: ObservableObject {
         if service.isConnected {
             isError = false
             coins = service.coins
-            let coin = service.coins.first { $0.type == selectedCoinType }
-            guard let coin = coin else {
+            let selectedCoinRecord = service.coins.first { $0.key == selectedCoinType }
+            guard let selectedCoinRecord = selectedCoinRecord else {
                 value = "..."
                 return
             }
-            type = coin.type
+            let coin = selectedCoinRecord.value
+
+            type = selectedCoinRecord.key
             value = coin.value.format()
+            color = coin.color
         } else {
             isError = true
             value = "Offline"

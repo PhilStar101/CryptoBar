@@ -11,6 +11,7 @@ import SwiftUI
 enum CoinType: String, Identifiable, Hashable, CaseIterable {
     case bitcoin
     case ethereum
+    case bnb = "binance-coin"
     case monero
     case litecoin
     case dogecoin
@@ -21,31 +22,16 @@ enum CoinType: String, Identifiable, Hashable, CaseIterable {
             return "BTC"
         case .ethereum:
             return "ETH"
+        case .bnb:
+            return "BNB"
         case .monero:
-            return "MON"
+            return "XMR"
         case .litecoin:
             return "LTC"
         case .dogecoin:
-            return "DOG"
-        }
-    }
-
-    var color: Color {
-        switch self {
-        case .bitcoin:
-            return .orange
-        case .ethereum:
-            return .purple
-        case .monero:
-            return .brown
-        case .litecoin:
-            return .blue
-        case .dogecoin:
-            return .yellow
+            return "DOGE"
         }
     }
 
     var id: Self { self }
-    var url: URL { URL(string: "https://coincap.io/assets/\(rawValue)")! }
-    var description: String { rawValue.capitalized }
 }
