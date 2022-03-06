@@ -12,13 +12,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem?
     let popover = NSPopover()
     let priceService = PriceService()
+    var coinsViewModel: CoinsViewModel?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        setupMenuBar()
-        setupPopover()
         priceService
             .connect()
             .setupMonitorNetworkConnectivity()
+        coinsViewModel = CoinsViewModel(service: priceService)
+        setupMenuBar()
+        setupPopover()
     }
 }
 
@@ -26,10 +28,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 extension AppDelegate {
     func setupMenuBar() {
-        statusItem = NSStatusBar.system.statusItem(withLength: 60)
-        guard let menuButton = statusItem?.button else { return }
+        statusItem = NSStatusBar.system.statusItem(withLength: 62)
+        guard let menuButton = statusItem?.button,
+              let menubarViewModel = coinsViewModel
+        else { return }
 
-        let hostingView = NSHostingView(rootView: MenuBarCoinView().frame(maxWidth: .infinity, maxHeight: .infinity))
+        // TODO: remove vm parameter
+        let hostingView = NSHostingView(rootView: MenuBarView(vm: menubarViewModel).frame(maxWidth: .infinity, maxHeight: .infinity))
 
         hostingView.translatesAutoresizingMaskIntoConstraints = false
         menuButton.addSubview(hostingView)
@@ -66,19 +71,20 @@ extension AppDelegate {
 
 extension AppDelegate: NSPopoverDelegate {
     func setupPopover() {
-        let hostingView = NSHostingView(rootView: PopoverView().frame(maxWidth: .infinity, maxHeight: .infinity))
+        guard let menubarViewModel = coinsViewModel else { return }
+        
+        let hostingView = NSHostingView(rootView: PopoverView(vm: menubarViewModel).frame(maxWidth: .infinity, maxHeight: .infinity))
         popover.behavior = .transient
         popover.animates = true
         popover.contentSize = .init(width: 248, height: 98)
         popover.contentViewController = NSViewController()
         popover.contentViewController?.view = hostingView
     }
-    
+
     func popoverDidClose(_ notification: Notification) {
         let positioningView = statusItem?.button?.subviews.first {
             $0.identifier == NSUserInterfaceItemIdentifier(rawValue: "positioningView")
         }
         positioningView?.removeFromSuperview()
     }
-    
 }

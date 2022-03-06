@@ -13,11 +13,18 @@ class PriceService: NSObject {
     private let session = URLSession(configuration: .default)
     private var wsTask: URLSessionWebSocketTask?
 
-    private let coinDictionarySubject = CurrentValueSubject<[String: Coin], Never>([:])
-    private var coinDictionary: [String: Coin] { coinDictionarySubject.value }
+    let coinsSubject = CurrentValueSubject<[CoinType: Coin], Never>([:])
+    var coins: [CoinType: Coin] {
+        get {
+            coinsSubject.value
+        }
+        set {
+            coinsSubject.value = newValue
+        }
+    }
 
-    private let connectionSubject = CurrentValueSubject<Bool, Never>(false)
-    private var isConnected: Bool { connectionSubject.value }
+    let connectionSubject = CurrentValueSubject<Bool, Never>(true)
+    var isConnected: Bool { connectionSubject.value }
 
     private var continuePing = true
     private var reconnectionDelay: Double {
@@ -37,9 +44,9 @@ class PriceService: NSObject {
                 case .string(let string):
                     // TODO: replace with error
                     guard let jsonData = string.data(using: .utf8) else { return }
-                    print(self.decodeData(for: jsonData))
+                    self.decodeData(for: jsonData)
                 case .data(let jsonData):
-                    print(self.decodeData(for: jsonData))
+                    self.decodeData(for: jsonData)
                 @unknown default:
                     // TODO: replace with error
                     print("Failure in message switch")
@@ -52,13 +59,21 @@ class PriceService: NSObject {
         }
     }
 
-    func decodeData(for jsonData: Data) -> [Coin] {
-        if let dictionary = try? JSONSerialization.jsonObject(with: jsonData,
-                                                              options: .fragmentsAllowed) as? [String: Any]
-        {
-            return Coin.makeArray(from: dictionary)
+    func decodeData(for jsonData: Data) {
+        guard let parsedDictionary = try? JSONSerialization.jsonObject(with: jsonData,
+                                                                       options: .fragmentsAllowed) as? [String: Any]
+        else { return }
+
+        var newCoins = [CoinType: Coin]()
+        let parsedCoins = Coin.makeDictionary(from: parsedDictionary)
+
+        parsedCoins.forEach { coinType, coin in
+            newCoins[coinType] = coin
         }
-        return []
+        let mergedDictionary = coins.merging(newCoins) { $1 }
+        coins = mergedDictionary
+
+//        coins = (Array(Set(Coin.makeArray(from: dictionary) + coins)))
     }
 
     func schedulePing() {
@@ -83,7 +98,6 @@ class PriceService: NSObject {
                         print("Ping failed")
                         self?.continuePing = false
                     } else if self?.wsTask?.taskIdentifier == identifier {
-                        print("Ping worked")
                         self?.continuePing = true
                     }
                 }
@@ -124,7 +138,7 @@ class PriceService: NSObject {
     }
 
     deinit {
-        coinDictionarySubject.send(completion: .finished)
+        coinsSubject.send(completion: .finished)
         connectionSubject.send(completion: .finished)
     }
 }
