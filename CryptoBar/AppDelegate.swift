@@ -34,7 +34,10 @@ extension AppDelegate {
         else { return }
 
         // TODO: remove vm parameter
-        let hostingView = NSHostingView(rootView: MenuBarView(vm: menubarViewModel).frame(maxWidth: .infinity, maxHeight: .infinity))
+        let hostingView = NSHostingView(
+            rootView: MenuBarView(vm: menubarViewModel)
+                .frame(maxWidth: CGFloat.infinity, maxHeight: CGFloat.infinity)
+        )
 
         hostingView.translatesAutoresizingMaskIntoConstraints = false
         menuButton.addSubview(hostingView)
@@ -72,8 +75,11 @@ extension AppDelegate {
 extension AppDelegate: NSPopoverDelegate {
     func setupPopover() {
         guard let menubarViewModel = coinsViewModel else { return }
-        
-        let hostingView = NSHostingView(rootView: PopoverView(vm: menubarViewModel).frame(maxWidth: .infinity, maxHeight: .infinity))
+
+        let hostingView = NSHostingView(
+            rootView: PopoverView(vm: menubarViewModel)
+                .frame(maxWidth: CGFloat.infinity, maxHeight: CGFloat.infinity)
+        )
         popover.behavior = .transient
         popover.animates = true
         popover.contentSize = .init(width: 248, height: 98)
